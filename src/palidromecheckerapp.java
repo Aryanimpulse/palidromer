@@ -415,3 +415,29 @@ public class palidromecheckerapp {
         System.out.println("Is Palindrome? : " + isPalindrome);
     }
 }
+/**
+ * Use Case 11: Object-Oriented Palindrome Service
+ * @author Developer
+ * @version 11.0
+ */
+public class palidromecheckerapp {
+    public static void main(String[] args) {
+        String input = "racecar";
+        PalindromeService service = new PalindromeService();
+        System.out.println("Input : " + input);
+        System.out.println("Is Palindrome? : " + service.checkPalindrome(input));
+    }
+}
+
+class PalindromeService {
+    public boolean checkPalindrome(String input) {
+        int start = 0;
+        int end = input.length() - 1;
+        while (start < end) {
+            if (input.charAt(start) != input.charAt(end)) return false;
+            start++;
+            end--;
+        }
+        return true;
+    }
+}
