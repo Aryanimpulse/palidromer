@@ -183,3 +183,69 @@ public class palidromecheckerapp {
         System.out.println("Is Palindrome? : " + isPalindrome);
     }
 }
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+/**
+ * ============================================================================
+ * MAIN CLASS - palidromecheckerapp
+ * ============================================================================
+ *
+ * Use Case 6: Queue + Stack Fairness Check
+ *
+ * Description:
+ * This class demonstrates palindrome validation using
+ * two different data structures:
+ *
+ * - Queue (FIFO - First In First Out)
+ * - Stack (LIFO - Last In First Out)
+ *
+ * Characters are inserted into both structures and then
+ * compared by removing from the front of the queue and
+ * the top of the stack.
+ *
+ * @author Developer
+ * @version 6.0
+ */
+
+public class palidromecheckerapp {
+    /**
+     * Application entry point for UC6.
+     *
+     * @param args Command-line arguments
+     */
+    public static void main(String[] args) {
+        // Define the input string to validate
+        String input = "civic"; //
+
+        // Create a Queue to store characters in FIFO order
+        Queue<Character> queue = new LinkedList<>(); //
+
+        // Create a Stack to store characters in LIFO order
+        Stack<Character> stack = new Stack<>(); //
+
+        // Insert each character into both queue and stack
+        for (char c : input.toCharArray()) { //
+            queue.add(c);
+            stack.push(c);
+        }
+
+        // Flag to track palindrome status
+        boolean isPalindrome = true; //
+
+        // Compare characters until the queue becomes empty
+        while (!queue.isEmpty()) { //
+            // queue.remove() gets the first item (FIFO)
+            // stack.pop() gets the last item (LIFO)
+            if (queue.remove() != stack.pop()) {
+                isPalindrome = false;
+                break; // Exit early if a mismatch occurs
+            }
+        }
+
+        // Display the result
+        System.out.println("Input : " + input); //
+        System.out.println("Is Palindrome? : " + isPalindrome); //
+    }
+}
