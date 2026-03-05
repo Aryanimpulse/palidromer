@@ -249,3 +249,68 @@ public class palidromecheckerapp {
         System.out.println("Is Palindrome? : " + isPalindrome); //
     }
 }
+import java.util.ArrayDeque;
+import java.util.Deque;
+
+/**
+ * ============================================================================
+ * MAIN CLASS - palidromecheckerapp
+ * ============================================================================
+ *
+ * Use Case 7: Deque Based Optimized Palindrome Checker
+ *
+ * Description:
+ * This class validates a palindrome using a Deque
+ * (Double Ended Queue).
+ *
+ * Characters are inserted into the deque and then
+ * compared by removing elements from both ends:
+ *
+ * - removeFirst()
+ * - removeLast()
+ *
+ * This avoids reversing the string and provides an
+ * efficient front-to-back comparison approach.
+ *
+ * This use case demonstrates optimal bidirectional
+ * traversal using Deque.
+ *
+ * @author Developer
+ * @version 7.0
+ */
+
+public class palidromecheckerapp {
+    /**
+     * Application entry point for UC7.
+     *
+     * @param args Command-line arguments
+     */
+    public static void main(String[] args) {
+        // Define the input string
+        String input = "refer"; // [cite: 125]
+
+        // Create a Deque to store characters
+        Deque<Character> deque = new ArrayDeque<>(); // [cite: 125]
+
+        // Add each character to the deque
+        for (char c : input.toCharArray()) { // [cite: 125]
+            deque.addLast(c);
+        }
+
+        // Flag to track palindrome result
+        boolean isPalindrome = true; // [cite: 125]
+
+        // Continue comparison while more than one element exists
+        while (deque.size() > 1) { // [cite: 125]
+            // Compare the first and last elements
+            if (deque.removeFirst() != deque.removeLast()) {
+                isPalindrome = false;
+                break; // Exit early if mismatch found
+            }
+        }
+
+        // Display the result
+        System.out.println("Input : " + input); //
+        System.out.println("Is Palindrome? : " + isPalindrome); //
+    }
+}
