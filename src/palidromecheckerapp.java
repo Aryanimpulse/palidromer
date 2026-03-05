@@ -39,3 +39,42 @@ public class palidromecheckerapp {
         }
     }
 }
+/**
+ * ============================================================================
+ * MAIN CLASS - palidromecheckerapp
+ * ============================================================================
+ *
+ * Use Case 3: Reverse String Based Palindrome Check
+ *
+ * Description:
+ * This class checks whether a string is a palindrome
+ * by reversing the string and comparing it with
+ * the original value.
+ *
+ * @author Developer
+ * @version 3.0
+ */
+
+public class palidromecheckerapp {
+    /**
+     * Application entry point for UC3.
+     *
+     * @param args Command-line arguments
+     */
+    public static void main(String[] args) {
+        String input = "madam";
+        String reversed = "";
+
+        // Iterate from the last character to the first [cite: 58]
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed += input.charAt(i); // String concatenation
+        }
+
+        // Compare the actual content using equals() [cite: 55]
+        boolean isPalindrome = input.equals(reversed);
+
+        // Display result [cite: 50]
+        System.out.println("Input text: " + input);
+        System.out.println("Is it a Palindrome? : " + isPalindrome);
+    }
+}
